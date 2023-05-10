@@ -1,5 +1,5 @@
-#ifndef MONTY
-#define MONTY
+#ifndef MONTY_H
+#define MONTY_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,13 +16,13 @@
  * @next: points to the next element of the stack (or queue)
  *
  * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO Holberton project
+ * for stack, queues, LIFO, FIFO
  */
 typedef struct stack_s
 {
-	int n;
-	struct stack_s *prev;
-	struct stack_s *next;
+        int n;
+        struct stack_s *prev;
+        struct stack_s *next;
 } stack_t;
 
 /**
@@ -53,19 +53,37 @@ typedef struct globals
  * @f: function to handle the opcode
  *
  * Description: opcode and its function
- * for stack, queues, LIFO, FIFO Holberton project
+ * for stack, queues, LIFO, FIFO
  */
 typedef struct instruction_s
 {
-	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+        char *opcode;
+        void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 extern global_t vglo;
 
-/* opcode_instructuions*/
-void myPush(stack_t **stack, unsigned int line_number);
-void myPall(stack_t **stack, unsigned int line_number);
  
+void _push(stack_t **stack, unsigned int line_number);
+void _pall(stack_t **stack, unsigned int line_number);
+
+
+ 
+void (*get_opcodes(char *opc))(stack_t **stack, unsigned int line_number);
+
+ 
+int _sch(char *s, char c);
+char *_strtoky(char *s, char *d);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void *_calloc(unsigned int nmemb, unsigned int size);
+int _strcmp(char *s1, char *s2);
+
+ 
+stack_t *add_dnodeint_end(stack_t **head, const int n);
+stack_t *add_dnodeint(stack_t **head, const int n);
+void free_dlistint(stack_t *head);
+
+ 
+void free_vglo(void);
 
 #endif
