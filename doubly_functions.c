@@ -57,7 +57,7 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 		exit(EXIT_FAILURE);
 	}
 	temp->n = n;
-	/*Careful with the first time*/
+	 
 	if (*head == NULL)
 	{
 		temp->next = *head;
