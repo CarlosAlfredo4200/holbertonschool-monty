@@ -12,7 +12,7 @@ void (*get_opcodes(char *opc))(stack_t **stack, unsigned int line_number)
 	instruction_t instruct[] = {
 		{"push", push},
 		{"pall", pall},
-		{"pint", _pint},
+		{"pint", pint},
 		{"pop", _pop},
 		{"swap", _swap},
 		{"queue", _queue},
