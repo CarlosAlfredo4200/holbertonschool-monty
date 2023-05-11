@@ -37,25 +37,16 @@ void _stack(stack_t **doubly, unsigned int line)
  * @line: line number;
  * Return: no return
  */
-void _add(stack_t **doubly, unsigned int line)
+void add(stack_t **doubly, unsigned int line)
 {
-	int m = 0;
-	stack_t *aux = NULL;
-
-	aux = *doubly;
-
-	for (; aux != NULL; aux = aux->next, m++)
-		;
-
-	if (m < 2)
+	if (*doubly == NULL || (*doubly)->next == NULL)
 	{
 		dprintf(2, "L%u: can't add, stack too short\n", line);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
 
-	aux = (*doubly)->next;
-	aux->n += (*doubly)->n;
+	(*doubly)->next->n += (*doubly)->n;
 	pop(doubly, line);
 }
 

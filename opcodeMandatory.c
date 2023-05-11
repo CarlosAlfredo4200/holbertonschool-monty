@@ -104,27 +104,22 @@ void pop(stack_t **doubly, unsigned int line)
  * @line: line number
  * Return: no return
  */
-void _swap(stack_t **doubly, unsigned int line)
+void swap(stack_t **doubly, unsigned int line)
 {
-	int m = 0;
-	stack_t *aux = NULL;
-
-	aux = *doubly;
-
-	for (; aux != NULL; aux = aux->next, m++)
-		;
-
-	if (m < 2)
+	if (*doubly == NULL || (*doubly)->next == NULL)
 	{
 		dprintf(2, "L%u: can't swap, stack too short\n", line);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
 
-	aux = *doubly;
-	*doubly = (*doubly)->next;
-	aux->next = (*doubly)->next;
-	aux->prev = *doubly;
-	(*doubly)->next = aux;
-	(*doubly)->prev = NULL;
+	stack_t *first = *doubly;
+	stack_t *second = first->next;
+
+	first->next = second->next;
+	first->prev = second;
+	second->next = first;
+	second->prev = NULL;
+
+	*doubly = second;
 }

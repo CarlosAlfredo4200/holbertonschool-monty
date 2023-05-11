@@ -14,10 +14,10 @@ void (*get_opcodes(char *opc))(stack_t **stack, unsigned int line_number)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
-		{"swap", _swap},
+		{"swap", swap},
 		{"queue", _queue},
 		{"stack", _stack},
-		{"add", _add},
+		{"add", add},
 		{"nop", _nop},
 		{"sub", sub},
 	 
