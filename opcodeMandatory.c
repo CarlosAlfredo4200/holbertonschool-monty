@@ -7,7 +7,7 @@
  * @line: line number
  * Return: no return
  */
-void _push(stack_t **doubly, unsigned int line)
+void push(stack_t **doubly, unsigned int line)
 {
 	int n, j;
 
