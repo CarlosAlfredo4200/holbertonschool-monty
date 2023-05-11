@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+ * push - pushes an element to the stack
+ *
+ * @doubly: head of the linked list
+ * @line: line number
+ * Return: no return
+ */
 void push(stack_t **doubly, unsigned int line)
 {
 	if (!vglo.arg)
@@ -24,12 +31,19 @@ void push(stack_t **doubly, unsigned int line)
 	vglo.lifo == 1 ? add_dnodeint(doubly, n) : add_dnodeint_end(doubly, n);
 }
 
+
+/**
+ * pall - prints all values on the stack
+ *
+ * @doubly: head of the linked list
+ * @line: line numbers
+ * Return: no return
+ */
 void pall(stack_t **doubly, unsigned int line)
 {
 	stack_t *current = *doubly;
 
-	(void)line;  // Evita el uso no utilizado de la variable line
-
+	(void)line;  
 	while (current != NULL)
 	{
 		printf("%d\n", current->n);
@@ -37,6 +51,14 @@ void pall(stack_t **doubly, unsigned int line)
 	}
 }
 
+
+/**
+ * pint - prints the value at the top of the stack
+ *
+ * @doubly: head of the linked list
+ * @line: line number
+ * Return: no return
+ */
 void pint(stack_t **doubly, unsigned int line)
 {
 	(void)line;
