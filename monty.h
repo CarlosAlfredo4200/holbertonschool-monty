@@ -73,6 +73,7 @@ void add(stack_t **doubly, unsigned int line);
 void nop(stack_t **doubly, unsigned int line);
 
 void sub(stack_t **doubly, unsigned int line);
+void queue(stack_t **doubly, unsigned int cline);
 
 /*get function*/
 void (*get_opcodes(char *opc))(stack_t **stack, unsigned int line_number);
