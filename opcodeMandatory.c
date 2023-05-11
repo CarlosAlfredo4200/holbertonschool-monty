@@ -7,30 +7,36 @@
  * @line: line number
  * Return: no return
  */
-void push(stack_t **doubly, unsigned int line)
+void _push(stack_t **doubly, unsigned int line)
 {
+	int n, j;
+
 	if (!vglo.arg)
 	{
-		dprintf(2, "L%u: usage: push integer\n", line);
+		dprintf(2, "L%u: ", line);
+		dprintf(2, "usage: push integer\n");
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
 
-	for (int j = 0; vglo.arg[j] != '\0'; j++)
+	for (j = 0; vglo.arg[j] != '\0'; j++)
 	{
 		if (!isdigit(vglo.arg[j]) && vglo.arg[j] != '-')
 		{
-			dprintf(2, "L%u: usage: push integer\n", line);
+			dprintf(2, "L%u: ", line);
+			dprintf(2, "usage: push integer\n");
 			free_vglo();
 			exit(EXIT_FAILURE);
 		}
 	}
 
-	int n = atoi(vglo.arg);
+	n = atoi(vglo.arg);
 
-	vglo.lifo == 1 ? add_dnodeint(doubly, n) : add_dnodeint_end(doubly, n);
+	if (vglo.lifo == 1)
+		add_dnodeint(doubly, n);
+	else
+		add_dnodeint_end(doubly, n);
 }
-
 
 /**
  * pall - prints all values on the stack
