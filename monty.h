@@ -8,6 +8,8 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <ctype.h>
+#include <string.h>
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -64,8 +66,8 @@ typedef struct instruction_s
 extern global_t vglo;
 
 /* opcode_instructuions*/
-void _push(stack_t **stack, unsigned int line_number);
-void _pall(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
 void _pint(stack_t **doubly, unsigned int cline);
 void _pop(stack_t **doubly, unsigned int cline);
 void _swap(stack_t **doubly, unsigned int cline);
