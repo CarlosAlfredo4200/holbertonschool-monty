@@ -71,7 +71,7 @@ void pop(stack_t **doubly, unsigned int line);
 void swap(stack_t **doubly, unsigned int line);
 void _queue(stack_t **doubly, unsigned int line);
 void _stack(stack_t **doubly, unsigned int line);
-void _add(stack_t **doubly, unsigned int line);
+void add(stack_t **doubly, unsigned int line);
 void _nop(stack_t **doubly, unsigned int line);
 void _sub(stack_t **doubly, unsigned int line);
 void _div(stack_t **doubly, unsigned int line);

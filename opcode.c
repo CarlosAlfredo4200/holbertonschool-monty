@@ -120,3 +120,16 @@ void swap(stack_t **doubly, unsigned int line)
 
 	*doubly = second;
 }
+
+void _add(stack_t **doubly, unsigned int line)
+{
+	if (*doubly == NULL || (*doubly)->next == NULL)
+	{
+		dprintf(2, "L%u: can't add, stack too short\n", line);
+		free_vglo();
+		exit(EXIT_FAILURE);
+	}
+
+	(*doubly)->next->n += (*doubly)->n;
+	pop(doubly, line);
+}
