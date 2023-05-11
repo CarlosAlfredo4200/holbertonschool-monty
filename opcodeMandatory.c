@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * _push - pushes an element to the stack
+ * push - pushes an element to the stack
  *
  * @doubly: head of the linked list
  * @line: line number
@@ -36,7 +36,7 @@ void push(stack_t **doubly, unsigned int line)
 }
 
 /**
- * _pall - prints all values on the stack
+ * pall - prints all values on the stack
  *
  * @doubly: head of the linked list
  * @line: line numbers
@@ -44,15 +44,14 @@ void push(stack_t **doubly, unsigned int line)
  */
 void pall(stack_t **doubly, unsigned int line)
 {
-	stack_t *aux;
-	(void)line;
+	stack_t *current = *doubly;
 
-	aux = *doubly;
+	(void)line;  // Evita el uso no utilizado de la variable line
 
-	while (aux)
+	while (current != NULL)
 	{
-		printf("%d\n", aux->n);
-		aux = aux->next;
+		printf("%d\n", current->n);
+		current = current->next;
 	}
 }
 
@@ -63,14 +62,13 @@ void pall(stack_t **doubly, unsigned int line)
  * @line: line number
  * Return: no return
  */
-void _pint(stack_t **doubly, unsigned int line)
+void pint(stack_t **doubly, unsigned int line)
 {
 	(void)line;
 
 	if (*doubly == NULL)
 	{
-		dprintf(2, "L%u: ", line);
-		dprintf(2, "can't pint, stack empty\n");
+		dprintf(2, "L%u: can't pint, stack empty\n", line);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
@@ -79,23 +77,22 @@ void _pint(stack_t **doubly, unsigned int line)
 }
 
 /**
- * _pop - removes the top element of the stack
+ * pop - removes the top element of the stack
  *
  * @doubly: head of the linked list
  * @line: line number
  * Return: no return
  */
-void _pop(stack_t **doubly, unsigned int line)
+void pop(stack_t **doubly, unsigned int line)
 {
-	stack_t *aux;
-
 	if (doubly == NULL || *doubly == NULL)
 	{
 		dprintf(2, "L%u: can't pop an empty stack\n", line);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
-	aux = *doubly;
+
+	stack_t *aux = *doubly;
 	*doubly = (*doubly)->next;
 	free(aux);
 }
