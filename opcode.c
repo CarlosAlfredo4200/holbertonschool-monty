@@ -121,6 +121,13 @@ void swap(stack_t **doubly, unsigned int line)
 	*doubly = second;
 }
 
+/**
+ * add - adds the top two elements of the stack
+ *
+ * @doubly: head of the linked list
+ * @line: line number;
+ * Return: no return
+ */
 void add(stack_t **doubly, unsigned int line)
 {
 	if (*doubly == NULL || (*doubly)->next == NULL)
@@ -132,4 +139,17 @@ void add(stack_t **doubly, unsigned int line)
 
 	(*doubly)->next->n += (*doubly)->n;
 	pop(doubly, line);
+}
+
+/**
+ * nop - doesn't do anythinhg
+ *
+ * @doubly: head of the linked list
+ * @line: line number;
+ * Return: no return
+ */
+void nop(stack_t **doubly, unsigned int line)
+{
+	(void)doubly;
+	(void)line;
 }

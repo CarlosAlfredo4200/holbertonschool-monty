@@ -32,18 +32,7 @@ void _stack(stack_t **doubly, unsigned int line)
 
 
 
-/**
- * _nop - doesn't do anythinhg
- *
- * @doubly: head of the linked list
- * @cline: line number;
- * Return: no return
- */
-void _nop(stack_t **doubly, unsigned int line)
-{
-	(void)doubly;
-	(void)line;
-}
+
 
 /**
  * _sub - subtracts the top element to the second top element of the stack
