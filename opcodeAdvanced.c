@@ -22,7 +22,7 @@ void queue(stack_t **doubly, unsigned int line)
  * @cline: line number;
  * Return: no return
  */
-void _stack(stack_t **doubly, unsigned int line)
+void stack(stack_t **doubly, unsigned int line)
 {
 	(void)doubly;
 	(void)line;

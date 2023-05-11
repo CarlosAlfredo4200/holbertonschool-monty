@@ -73,6 +73,7 @@ void add(stack_t **doubly, unsigned int line);
 void nop(stack_t **doubly, unsigned int line);
 
 void sub(stack_t **doubly, unsigned int line);
+void stack(stack_t **doubly, unsigned int cline);
 void queue(stack_t **doubly, unsigned int cline);
 
 /*get function*/
