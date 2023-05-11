@@ -32,10 +32,7 @@ void push(stack_t **doubly, unsigned int line)
 
 	n = atoi(vglo.arg);
 
-	if (vglo.lifo == 1)
-		add_dnodeint(doubly, n);
-	else
-		add_dnodeint_end(doubly, n);
+	vglo.lifo == 1 ? add_dnodeint(doubly, n) : add_dnodeint_end(doubly, n);
 }
 
 /**
