@@ -73,15 +73,6 @@ void add(stack_t **doubly, unsigned int line);
 void nop(stack_t **doubly, unsigned int line);
 
 void sub(stack_t **doubly, unsigned int line);
-void _queue(stack_t **doubly, unsigned int line);
-void _stack(stack_t **doubly, unsigned int line);
-void _div(stack_t **doubly, unsigned int line);
-void _mul(stack_t **doubly, unsigned int line);
-void _mod(stack_t **doubly, unsigned int line);
-void _pchar(stack_t **doubly, unsigned int line);
-void _pstr(stack_t **doubly, unsigned int line);
-void _rotl(stack_t **doubly, unsigned int line);
-void _rotr(stack_t **doubly, unsigned int line);
 
 /*get function*/
 void (*get_opcodes(char *opc))(stack_t **stack, unsigned int line_number);
@@ -91,7 +82,7 @@ int _sch(char *s, char c);
 char *_strtoky(char *s, char *d);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void *_calloc(unsigned int nmemb, unsigned int size);
-int _strcmp(char *s1, char *s2);
+// int _strcmp(char *s1, char *s2);
 
 /* doubly linked list functions */
 stack_t *add_dnodeint_end(stack_t **head, const int n);

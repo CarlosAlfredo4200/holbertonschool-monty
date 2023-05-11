@@ -18,24 +18,21 @@ void (*get_opcodes(char *opc))(stack_t **stack, unsigned int line_number)
 		{"add", add},
 		{"nop", nop},
 		{"sub", sub},
-		{"queue", _queue},
-		{"stack", _stack},
-		{"mul", _mul},
-		{"div", _div},
-		{"mod", _mod},
-		{"pchar", _pchar},
-		{"pstr", _pstr},
-		{"rotl", _rotl},
-		{"rotr", _rotr},
 		{NULL, NULL}
 	};
-	int i;
 
-	for (i = 0; instruct[i].opcode; i++)
+	int i = 0;
+	while (instruct[i].opcode != NULL)
 	{
-		if (_strcmp(instruct[i].opcode, opc) == 0)
-			break;
+		if (strcmp(instruct[i].opcode, opc) == 0)
+		{
+			return instruct[i].f;
+		}
+		i++;
 	}
 
-	return (instruct[i].f);
+	dprintf(2, "Unknown opcode: %s\n", opc);
+	free_vglo();
+	exit(EXIT_FAILURE);
 }
+
