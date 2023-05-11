@@ -1,38 +1,36 @@
 #include "monty.h"
 
- 
 void push(stack_t **doubly, unsigned int cline)
 {
-	int n, j;
-
 	if (!vglo.arg)
 	{
-		dprintf(2, "L%u: ", cline);
-		dprintf(2, "usage: push integer\n");
+		dprintf(2, "L%u: usage: push integer\n", cline);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
 
-	for (j = 0; vglo.arg[j] != '\0'; j++)
+	for (int j = 0; vglo.arg[j] != '\0'; j++)
 	{
 		if (!isdigit(vglo.arg[j]) && vglo.arg[j] != '-')
 		{
-			dprintf(2, "L%u: ", cline);
-			dprintf(2, "usage: push integer\n");
+			dprintf(2, "L%u: usage: push integer\n", cline);
 			free_vglo();
 			exit(EXIT_FAILURE);
 		}
 	}
 
-	n = atoi(vglo.arg);
+	int n = atoi(vglo.arg);
 
 	if (vglo.lifo == 1)
+	{
 		add_dnodeint(doubly, n);
+	}
 	else
+	{
 		add_dnodeint_end(doubly, n);
+	}
 }
 
- 
 void _pall(stack_t **doubly, unsigned int cline)
 {
 	stack_t *aux;
@@ -47,7 +45,6 @@ void _pall(stack_t **doubly, unsigned int cline)
 	}
 }
 
- 
 void _pint(stack_t **doubly, unsigned int cline)
 {
 	(void)cline;
@@ -63,7 +60,6 @@ void _pint(stack_t **doubly, unsigned int cline)
 	printf("%d\n", (*doubly)->n);
 }
 
- 
 void _pop(stack_t **doubly, unsigned int cline)
 {
 	stack_t *aux;
@@ -79,7 +75,6 @@ void _pop(stack_t **doubly, unsigned int cline)
 	free(aux);
 }
 
- 
 void _swap(stack_t **doubly, unsigned int cline)
 {
 	int m = 0;
