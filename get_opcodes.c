@@ -26,7 +26,7 @@ void (*get_opcodes(char *opc))(stack_t **stack, unsigned int line_number)
 	int i = 0;
 	while (instruct[i].opcode != NULL)
 	{
-		if (strcmp(instruct[i].opcode, opc) == 0)
+		if (_strcmp(instruct[i].opcode, opc) == 0)
 		{
 			return instruct[i].f;
 		}
