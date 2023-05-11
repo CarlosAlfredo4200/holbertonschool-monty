@@ -56,7 +56,7 @@ void _add(stack_t **doubly, unsigned int cline)
 
 	aux = (*doubly)->next;
 	aux->n += (*doubly)->n;
-	_pop(doubly, cline);
+	pop(doubly, cline);
 }
 
 /**
