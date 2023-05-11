@@ -46,8 +46,7 @@ void pall(stack_t **doubly, unsigned int line)
 {
 	stack_t *current = *doubly;
 
-	(void)line;  // Evita el uso no utilizado de la variable line
-
+	(void)line;
 	while (current != NULL)
 	{
 		printf("%d\n", current->n);
@@ -56,7 +55,7 @@ void pall(stack_t **doubly, unsigned int line)
 }
 
 /**
- * _pint - prints the value at the top of the stack
+ * pint - prints the value at the top of the stack
  *
  * @doubly: head of the linked list
  * @line: line number
@@ -98,7 +97,7 @@ void pop(stack_t **doubly, unsigned int line)
 }
 
 /**
- * _swap - swaps the top two elements of the stack
+ * swap - swaps the top two elements of the stack
  *
  * @doubly: head of the linked list
  * @line: line number
