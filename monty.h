@@ -69,7 +69,7 @@ extern global_t vglo;
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **doubly, unsigned int cline);
-void _pop(stack_t **doubly, unsigned int cline);
+void pop(stack_t **doubly, unsigned int cline);
 void _swap(stack_t **doubly, unsigned int cline);
 void _queue(stack_t **doubly, unsigned int cline);
 void _stack(stack_t **doubly, unsigned int cline);
