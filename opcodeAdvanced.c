@@ -4,13 +4,13 @@
  * _queue - sets the format of the data to a queue (FIFO)
  *
  * @doubly: head of the linked list
- * @line: line number;
+ * @cline: line number;
  * Return: no return
  */
-void queue(stack_t **doubly, unsigned int line)
+void _queue(stack_t **doubly, unsigned int cline)
 {
 	(void)doubly;
-	(void)line;
+	(void)cline;
 
 	vglo.lifo = 0;
 }
@@ -22,35 +22,81 @@ void queue(stack_t **doubly, unsigned int line)
  * @cline: line number;
  * Return: no return
  */
-void stack(stack_t **doubly, unsigned int line)
+void _stack(stack_t **doubly, unsigned int cline)
 {
 	(void)doubly;
-	(void)line;
+	(void)cline;
 
 	vglo.lifo = 1;
 }
 
-
-
-
-
 /**
- * sub - subtracts the top element to the second top element of the stack
+ * _add - adds the top two elements of the stack
  *
  * @doubly: head of the linked list
- * @line: line number;
+ * @cline: line number;
  * Return: no return
  */
- void sub(stack_t **doubly, unsigned int line)
+void _add(stack_t **doubly, unsigned int cline)
 {
-	if (*doubly == NULL || (*doubly)->next == NULL)
+	int m = 0;
+	stack_t *aux = NULL;
+
+	aux = *doubly;
+
+	for (; aux != NULL; aux = aux->next, m++)
+		;
+
+	if (m < 2)
 	{
-		dprintf(2, "L%u: can't sub, stack too short\n", line);
+		dprintf(2, "L%u: can't add, stack too short\n", cline);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
 
-	(*doubly)->next->n -= (*doubly)->n;
-	pop(doubly, line);
+	aux = (*doubly)->next;
+	aux->n += (*doubly)->n;
+	_pop(doubly, cline);
 }
 
+/**
+ * _nop - doesn't do anythinhg
+ *
+ * @doubly: head of the linked list
+ * @cline: line number;
+ * Return: no return
+ */
+void _nop(stack_t **doubly, unsigned int cline)
+{
+	(void)doubly;
+	(void)cline;
+}
+
+/**
+ * _sub - subtracts the top element to the second top element of the stack
+ *
+ * @doubly: head of the linked list
+ * @cline: line number;
+ * Return: no return
+ */
+void _sub(stack_t **doubly, unsigned int cline)
+{
+	int m = 0;
+	stack_t *aux = NULL;
+
+	aux = *doubly;
+
+	for (; aux != NULL; aux = aux->next, m++)
+		;
+
+	if (m < 2)
+	{
+		dprintf(2, "L%u: can't sub, stack too short\n", cline);
+		free_vglo();
+		exit(EXIT_FAILURE);
+	}
+
+	aux = (*doubly)->next;
+	aux->n -= (*doubly)->n;
+	_pop(doubly, cline);
+}
