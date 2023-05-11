@@ -121,7 +121,7 @@ void swap(stack_t **doubly, unsigned int line)
 	*doubly = second;
 }
 
-void _add(stack_t **doubly, unsigned int line)
+void add(stack_t **doubly, unsigned int line)
 {
 	if (*doubly == NULL || (*doubly)->next == NULL)
 	{
