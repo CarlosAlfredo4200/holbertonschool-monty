@@ -4,13 +4,13 @@
  * _queue - sets the format of the data to a queue (FIFO)
  *
  * @doubly: head of the linked list
- * @cline: line number;
+ * @line: line number;
  * Return: no return
  */
-void _queue(stack_t **doubly, unsigned int cline)
+void _queue(stack_t **doubly, unsigned int line)
 {
 	(void)doubly;
-	(void)cline;
+	(void)line;
 
 	vglo.lifo = 0;
 }
@@ -19,13 +19,13 @@ void _queue(stack_t **doubly, unsigned int cline)
  * _stack - sets the format fo the data to a stack (LIFO)
  *
  * @doubly: head of the linked list
- * @cline: line number;
+ * @line: line number;
  * Return: no return
  */
-void _stack(stack_t **doubly, unsigned int cline)
+void _stack(stack_t **doubly, unsigned int line)
 {
 	(void)doubly;
-	(void)cline;
+	(void)line;
 
 	vglo.lifo = 1;
 }
@@ -34,10 +34,10 @@ void _stack(stack_t **doubly, unsigned int cline)
  * _add - adds the top two elements of the stack
  *
  * @doubly: head of the linked list
- * @cline: line number;
+ * @line: line number;
  * Return: no return
  */
-void _add(stack_t **doubly, unsigned int cline)
+void _add(stack_t **doubly, unsigned int line)
 {
 	int m = 0;
 	stack_t *aux = NULL;
@@ -49,37 +49,37 @@ void _add(stack_t **doubly, unsigned int cline)
 
 	if (m < 2)
 	{
-		dprintf(2, "L%u: can't add, stack too short\n", cline);
+		dprintf(2, "L%u: can't add, stack too short\n", line);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
 
 	aux = (*doubly)->next;
 	aux->n += (*doubly)->n;
-	pop(doubly, cline);
+	pop(doubly, line);
 }
 
 /**
  * _nop - doesn't do anythinhg
  *
  * @doubly: head of the linked list
- * @cline: line number;
+ * @line: line number;
  * Return: no return
  */
-void _nop(stack_t **doubly, unsigned int cline)
+void _nop(stack_t **doubly, unsigned int line)
 {
 	(void)doubly;
-	(void)cline;
+	(void)line;
 }
 
 /**
  * _sub - subtracts the top element to the second top element of the stack
  *
  * @doubly: head of the linked list
- * @cline: line number;
+ * @line: line number;
  * Return: no return
  */
-void _sub(stack_t **doubly, unsigned int cline)
+void sub(stack_t **doubly, unsigned int line)
 {
 	int m = 0;
 	stack_t *aux = NULL;
@@ -91,12 +91,12 @@ void _sub(stack_t **doubly, unsigned int cline)
 
 	if (m < 2)
 	{
-		dprintf(2, "L%u: can't sub, stack too short\n", cline);
+		dprintf(2, "L%u: can't sub, stack too short\n", line);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
 
 	aux = (*doubly)->next;
 	aux->n -= (*doubly)->n;
-	pop(doubly, cline);
+	pop(doubly, line);
 }

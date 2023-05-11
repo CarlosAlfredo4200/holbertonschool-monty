@@ -68,21 +68,21 @@ extern global_t vglo;
 /* opcode_instructuions*/
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-void pint(stack_t **doubly, unsigned int cline);
-void pop(stack_t **doubly, unsigned int cline);
-void _swap(stack_t **doubly, unsigned int cline);
-void _queue(stack_t **doubly, unsigned int cline);
-void _stack(stack_t **doubly, unsigned int cline);
-void _add(stack_t **doubly, unsigned int cline);
-void _nop(stack_t **doubly, unsigned int cline);
-void _sub(stack_t **doubly, unsigned int cline);
-void _div(stack_t **doubly, unsigned int cline);
-void _mul(stack_t **doubly, unsigned int cline);
-void _mod(stack_t **doubly, unsigned int cline);
-void _pchar(stack_t **doubly, unsigned int cline);
-void _pstr(stack_t **doubly, unsigned int cline);
-void _rotl(stack_t **doubly, unsigned int cline);
-void _rotr(stack_t **doubly, unsigned int cline);
+void pint(stack_t **doubly, unsigned int line);
+void pop(stack_t **doubly, unsigned int line);
+void _swap(stack_t **doubly, unsigned int line);
+void _queue(stack_t **doubly, unsigned int line);
+void _stack(stack_t **doubly, unsigned int line);
+void _add(stack_t **doubly, unsigned int line);
+void _nop(stack_t **doubly, unsigned int line);
+void sub(stack_t **doubly, unsigned int line);
+void _div(stack_t **doubly, unsigned int line);
+void _mul(stack_t **doubly, unsigned int line);
+void _mod(stack_t **doubly, unsigned int line);
+void _pchar(stack_t **doubly, unsigned int line);
+void _pstr(stack_t **doubly, unsigned int line);
+void _rotl(stack_t **doubly, unsigned int line);
+void _rotr(stack_t **doubly, unsigned int line);
 
 /*get function*/
 void (*get_opcodes(char *opc))(stack_t **stack, unsigned int line_number);
