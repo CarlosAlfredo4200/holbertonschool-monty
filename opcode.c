@@ -43,7 +43,7 @@ void pall(stack_t **doubly, unsigned int line)
 {
 	stack_t *current = *doubly;
 
-	(void)line;  
+	(void)line;
 	while (current != NULL)
 	{
 		printf("%d\n", current->n);
@@ -73,42 +73,50 @@ void pint(stack_t **doubly, unsigned int line)
 	printf("%d\n", (*doubly)->n);
 }
 
-void _pop(stack_t **doubly, unsigned int line)
+/**
+ * pop - removes the top element of the stack
+ *
+ * @doubly: head of the linked list
+ * @line: line number
+ * Return: no return
+ */
+void pop(stack_t **doubly, unsigned int line)
 {
-	stack_t *aux;
-
 	if (doubly == NULL || *doubly == NULL)
 	{
 		dprintf(2, "L%u: can't pop an empty stack\n", line);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
-	aux = *doubly;
+
+	stack_t *aux = *doubly;
 	*doubly = (*doubly)->next;
 	free(aux);
 }
 
-void _swap(stack_t **doubly, unsigned int line)
+/**
+ * swap - swaps the top two elements of the stack
+ *
+ * @doubly: head of the linked list
+ * @line: line number
+ * Return: no return
+ */
+void swap(stack_t **doubly, unsigned int line)
 {
-	int m = 0;
-	stack_t *aux = NULL;
-
-	aux = *doubly;
-
-	for (; aux != NULL; aux = aux->next, m++)
-		;
-
-	if (m < 2)
+	if (*doubly == NULL || (*doubly)->next == NULL)
 	{
 		dprintf(2, "L%u: can't swap, stack too short\n", line);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
 
-	aux = *doubly;
-	*doubly = (*doubly)->next;
-	aux->next = (*doubly)->next;
-	aux->prev = *doubly;
-	(*doubly)->next = aux;
-	(*doubly)->prev = NULL;
+	stack_t *first = *doubly;
+	stack_t *second = first->next;
+
+	first->next = second->next;
+	first->prev = second;
+	second->next = first;
+	second->prev = NULL;
+
+	*doubly = second;
 }
