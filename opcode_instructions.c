@@ -24,17 +24,16 @@ void push(stack_t **doubly, unsigned int line)
 	vglo.lifo == 1 ? add_dnodeint(doubly, n) : add_dnodeint_end(doubly, n);
 }
 
-void _pall(stack_t **doubly, unsigned int line)
+void pall(stack_t **doubly, unsigned int line)
 {
-	stack_t *aux;
-	(void)line;
+	stack_t *current = *doubly;
 
-	aux = *doubly;
+	(void)line;  // Evita el uso no utilizado de la variable line
 
-	while (aux)
+	while (current != NULL)
 	{
-		printf("%d\n", aux->n);
-		aux = aux->next;
+		printf("%d\n", current->n);
+		current = current->next;
 	}
 }
 
