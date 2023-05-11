@@ -1,10 +1,10 @@
 #include "monty.h"
 
-void push(stack_t **doubly, unsigned int cline)
+void push(stack_t **doubly, unsigned int line)
 {
 	if (!vglo.arg)
 	{
-		dprintf(2, "L%u: usage: push integer\n", cline);
+		dprintf(2, "L%u: usage: push integer\n", line);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
@@ -13,7 +13,7 @@ void push(stack_t **doubly, unsigned int cline)
 	{
 		if (!isdigit(vglo.arg[j]) && vglo.arg[j] != '-')
 		{
-			dprintf(2, "L%u: usage: push integer\n", cline);
+			dprintf(2, "L%u: usage: push integer\n", line);
 			free_vglo();
 			exit(EXIT_FAILURE);
 		}
@@ -24,10 +24,10 @@ void push(stack_t **doubly, unsigned int cline)
 	vglo.lifo == 1 ? add_dnodeint(doubly, n) : add_dnodeint_end(doubly, n);
 }
 
-void _pall(stack_t **doubly, unsigned int cline)
+void _pall(stack_t **doubly, unsigned int line)
 {
 	stack_t *aux;
-	(void)cline;
+	(void)line;
 
 	aux = *doubly;
 
@@ -38,13 +38,13 @@ void _pall(stack_t **doubly, unsigned int cline)
 	}
 }
 
-void _pint(stack_t **doubly, unsigned int cline)
+void _pint(stack_t **doubly, unsigned int line)
 {
-	(void)cline;
+	(void)line;
 
 	if (*doubly == NULL)
 	{
-		dprintf(2, "L%u: ", cline);
+		dprintf(2, "L%u: ", line);
 		dprintf(2, "can't pint, stack empty\n");
 		free_vglo();
 		exit(EXIT_FAILURE);
@@ -53,13 +53,13 @@ void _pint(stack_t **doubly, unsigned int cline)
 	printf("%d\n", (*doubly)->n);
 }
 
-void _pop(stack_t **doubly, unsigned int cline)
+void _pop(stack_t **doubly, unsigned int line)
 {
 	stack_t *aux;
 
 	if (doubly == NULL || *doubly == NULL)
 	{
-		dprintf(2, "L%u: can't pop an empty stack\n", cline);
+		dprintf(2, "L%u: can't pop an empty stack\n", line);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
@@ -68,7 +68,7 @@ void _pop(stack_t **doubly, unsigned int cline)
 	free(aux);
 }
 
-void _swap(stack_t **doubly, unsigned int cline)
+void _swap(stack_t **doubly, unsigned int line)
 {
 	int m = 0;
 	stack_t *aux = NULL;
@@ -80,7 +80,7 @@ void _swap(stack_t **doubly, unsigned int cline)
 
 	if (m < 2)
 	{
-		dprintf(2, "L%u: can't swap, stack too short\n", cline);
+		dprintf(2, "L%u: can't swap, stack too short\n", line);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
