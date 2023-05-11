@@ -66,7 +66,7 @@ extern global_t vglo;
 /* opcode_instructuions*/
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-void _pint(stack_t **doubly, unsigned int line);
+void pint(stack_t **doubly, unsigned int line);
 void _pop(stack_t **doubly, unsigned int line);
 void _swap(stack_t **doubly, unsigned int line);
 void _queue(stack_t **doubly, unsigned int line);

@@ -37,14 +37,13 @@ void pall(stack_t **doubly, unsigned int line)
 	}
 }
 
-void _pint(stack_t **doubly, unsigned int line)
+void pint(stack_t **doubly, unsigned int line)
 {
 	(void)line;
 
 	if (*doubly == NULL)
 	{
-		dprintf(2, "L%u: ", line);
-		dprintf(2, "can't pint, stack empty\n");
+		dprintf(2, "L%u: can't pint, stack empty\n", line);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
