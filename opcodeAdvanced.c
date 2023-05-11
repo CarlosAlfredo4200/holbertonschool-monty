@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
- * _queue - sets the format of the data to a queue (FIFO)
+ * queue - sets the format of the data to a queue (FIFO)
  *
  * @doubly: head of the linked list
  * @line: line number;
  * Return: no return
  */
-void _queue(stack_t **doubly, unsigned int line)
+void queue(stack_t **doubly, unsigned int line)
 {
 	(void)doubly;
 	(void)line;
@@ -16,13 +16,13 @@ void _queue(stack_t **doubly, unsigned int line)
 }
 
 /**
- * _stack - sets the format fo the data to a stack (LIFO)
+ * stack - sets the format fo the data to a stack (LIFO)
  *
  * @doubly: head of the linked list
  * @line: line number;
  * Return: no return
  */
-void _stack(stack_t **doubly, unsigned int line)
+void stack(stack_t **doubly, unsigned int line)
 {
 	(void)doubly;
 	(void)line;
@@ -31,7 +31,7 @@ void _stack(stack_t **doubly, unsigned int line)
 }
 
 /**
- * _add - adds the top two elements of the stack
+ * add - adds the top two elements of the stack
  *
  * @doubly: head of the linked list
  * @line: line number;
@@ -51,20 +51,20 @@ void add(stack_t **doubly, unsigned int line)
 }
 
 /**
- * _nop - doesn't do anythinhg
+ * nop - doesn't do anythinhg
  *
  * @doubly: head of the linked list
  * @line: line number;
  * Return: no return
  */
-void _nop(stack_t **doubly, unsigned int line)
+void nop(stack_t **doubly, unsigned int line)
 {
 	(void)doubly;
 	(void)line;
 }
 
 /**
- * _sub - subtracts the top element to the second top element of the stack
+ * sub - subtracts the top element to the second top element of the stack
  *
  * @doubly: head of the linked list
  * @line: line number;
