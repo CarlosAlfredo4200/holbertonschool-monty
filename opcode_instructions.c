@@ -1,7 +1,7 @@
 #include "monty.h"
 
  
-void _push(stack_t **doubly, unsigned int cline)
+void push(stack_t **doubly, unsigned int cline)
 {
 	int n, j;
 
