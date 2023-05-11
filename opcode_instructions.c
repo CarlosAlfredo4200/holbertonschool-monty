@@ -7,8 +7,8 @@ void _push(stack_t **doubly, unsigned int cline)
 
 	if (!vglo.arg)
 	{
-		fprintf(2, "L%u: ", cline);
-		fprintf(2, "usage: push integer\n");
+		dprintf(2, "L%u: ", cline);
+		dprintf(2, "usage: push integer\n");
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
@@ -17,8 +17,8 @@ void _push(stack_t **doubly, unsigned int cline)
 	{
 		if (!isdigit(vglo.arg[j]) && vglo.arg[j] != '-')
 		{
-			fprintf(2, "L%u: ", cline);
-			fprintf(2, "usage: push integer\n");
+			dprintf(2, "L%u: ", cline);
+			dprintf(2, "usage: push integer\n");
 			free_vglo();
 			exit(EXIT_FAILURE);
 		}
@@ -54,8 +54,8 @@ void _pint(stack_t **doubly, unsigned int cline)
 
 	if (*doubly == NULL)
 	{
-		fprintf(2, "L%u: ", cline);
-		fprintf(2, "can't pint, stack empty\n");
+		dprintf(2, "L%u: ", cline);
+		dprintf(2, "can't pint, stack empty\n");
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
